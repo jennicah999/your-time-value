@@ -3,9 +3,6 @@ workflows:
     name: iOS Build
     instance_type: mac_mini_m1
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_id: com.jennicah.yourtimevalue
       vars:
         XCODE_WORKSPACE: "ios/App/App.xcworkspace"
         XCODE_SCHEME: "App"
@@ -23,7 +20,7 @@ workflows:
       - name: Install pods
         script: |
           cd ios/App && pod install && cd ../..
-      - name: Build iOS app
+      - name: Build iOS app for testing
         script: |
           xcodebuild -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
@@ -32,23 +29,5 @@ workflows:
             -arch arm64 \
             -sdk iphoneos \
             build-for-testing
-      - name: Build IPA
-        script: |
-          xcodebuild -workspace "$XCODE_WORKSPACE" \
-            -scheme "$XCODE_SCHEME" \
-            -configuration Release \
-            -derivedDataPath build/ios \
-            -arch arm64 \
-            -sdk iphoneos \
-            -archivePath "build/ios/App.xcarchive" \
-            archive
-          xcodebuild -exportArchive \
-            -archivePath "build/ios/App.xcarchive" \
-            -exportOptionsPlist ios/App/exportOptions.plist \
-            -exportPath build/ios/ipa
     artifacts:
-      - build/ios/ipa/**/*.ipa
-    publishing:
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
+      - build/ios/**
