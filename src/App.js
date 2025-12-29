@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { DollarSign, Clock, TrendingUp, ShoppingCart, PiggyBank, Calendar, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Clock, ShoppingCart, PiggyBank, Calendar, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function WorkHoursCalculator() {
   const [wageType, setWageType] = useState('hourly');
