@@ -1,0 +1,6 @@
+{
+  "appId": "com.jennica.workhoursapp",
+  "appName": "Work Hours Calculator",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
