@@ -16,6 +16,7 @@ workflows:
           npm run build
       - name: Sync Capacitor
         script: |
+          npm install -g @capacitor/cli
           npx cap sync ios
       - name: Install pods
         script: |
