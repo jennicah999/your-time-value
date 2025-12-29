@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Work Hours Calculator</string>
+    <string name="title_activity_main">Work Hours Calculator</string>
+    <string name="package_name">com.jennica.workhoursapp</string>
+    <string name="custom_url_scheme">com.jennica.workhoursapp</string>
+</resources>
