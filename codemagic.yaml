@@ -29,6 +29,8 @@ workflows:
             -derivedDataPath build/ios \
             -arch arm64 \
             -sdk iphoneos \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
             build-for-testing
     artifacts:
       - build/ios/**
